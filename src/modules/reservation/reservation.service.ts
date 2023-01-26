@@ -4,10 +4,10 @@ import { ReservationInterface } from './reservation.interface';
 import * as moment from 'moment';
 import { transformReservation } from './reservation.tranformer';
 import { AmenityService } from '../amenity/amenity.service';
-import { GetReservationsByAmenityAndDateDto } from './get.reservations.by.amenity.and.date.dto';
-import { ReservationsResponse } from './reservations.response';
-import { GroupedReservationsResponse } from './grouped.reservations.response';
-import { ReservationResponse } from './reservation.response';
+import { GetReservationsByAmenityAndDateDto } from './dtos/get.reservations.by.amenity.and.date.dto';
+import { ReservationsResponse } from './responses/reservations.response';
+import { GroupedReservationsResponse } from './responses/grouped.reservations.response';
+import { ReservationResponse } from './responses/reservation.response';
 
 
 @Injectable()
