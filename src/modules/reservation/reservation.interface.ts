@@ -1,8 +1,8 @@
 export class ReservationInterface {
-    id;
-    amenity_id;
-    user_id;
-    start_time;
-    end_time;
-    date;
+    id: number;
+    amenity_id: number;
+    user_id: number;
+    start_time: number;
+    end_time: number;
+    date: number;
 }

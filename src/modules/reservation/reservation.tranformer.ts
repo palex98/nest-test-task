@@ -1,6 +1,6 @@
 import { ReservationInterface } from './reservation.interface';
 import { AmenityInterface } from '../amenity/amenity.interface';
-import { ReservationResponse } from './reservation.response';
+import { ReservationResponse } from './responses/reservation.response';
 
 export const transformReservation = (reservation: ReservationInterface, amenity: AmenityInterface): ReservationResponse => ({
     reservationId: reservation.id,
