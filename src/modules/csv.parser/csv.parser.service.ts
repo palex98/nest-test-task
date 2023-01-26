@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { createReadStream, ReadStream } from 'fs';
 import { parse } from 'csv-parse';
+import { Readable } from 'stream';
 
 @Injectable()
 export class CSVParserService {
@@ -8,7 +9,7 @@ export class CSVParserService {
         return createReadStream(`./csv/${fileName}`);
     }
 
-    private csvToJson<T>(readableStream: ReadStream): Promise<T[]> {
+    public csvToJson<T>(readableStream: Readable): Promise<T[]> {
         return new Promise((res, rej) => {
             const parsedData = [];
             readableStream
