@@ -9,7 +9,7 @@ export class AmenityService {
     constructor(private readonly csvParserService: CSVParserService) {
     }
 
-    private getAllAmenities(): Promise<AmenityInterface[]> {
+    getAllAmenities(): Promise<AmenityInterface[]> {
         return this.csvParserService.getParsedData<AmenityInterface>(this.sourceFileName);
     }
 

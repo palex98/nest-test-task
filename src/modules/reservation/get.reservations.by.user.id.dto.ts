@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { IsDate, IsNumber } from 'class-validator';
 import { Transform } from 'class-transformer';
 
-export class GetReservationsByAmenityAndDateDto {
+export class GetReservationsByUserIdDto {
     @ApiProperty()
     @IsNumber()
     @Transform(({ value }) => {
@@ -12,10 +12,5 @@ export class GetReservationsByAmenityAndDateDto {
         }
         return result;
     })
-    public amenityId: number;
-
-    @ApiProperty()
-    @IsDate()
-    @Transform(({ value }) => new Date(Number(value)))
-    public date: Date;
+    public userId: number;
 }
