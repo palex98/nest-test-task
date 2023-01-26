@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  reservations-api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    environment:
+      - BCRYPT_SALT=some_salt
+      - DATABASE_HOST=mongodb
+      - DATABASE_NAME=redvike-test
+      - DATABASE_PASSWORD=redvike-db-password
+      - DATABASE_PORT=27017
+      - DATABASE_USER=redvike-db-user
+    command: npm run start:prod
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: redvike-user
+      MONGO_INITDB_ROOT_PASSWORD: redvike-password
+      MONGO_INITDB_DATABASE: redvike-test
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
+volumes:
+  mongodata:
