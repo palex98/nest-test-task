@@ -8,6 +8,8 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
+  app.setGlobalPrefix('api');
+
   const config = new DocumentBuilder()
       .addBasicAuth()
       .setTitle('Reservations API')
